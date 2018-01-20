@@ -8,20 +8,20 @@ html(lang="pl")
   body
     nav
       .inner-topnav
-        a.button(href="main/")
+        a.button(href="/")
           img(src="" alt="LOGO")
         .topnav-buttons
-          a.button(href="zarejestruj.html") Zarejestruj się
-          a.button(href="zaloguj.html") Zaloguj się
-          a.button(href="about.html") O aplikacji
-          a.button(href="/about") Kontakt
+          a.button(href="/zarejestruj") Zarejestruj się
+          a.button(href="/zaloguj") Zaloguj się
+          a.button(href="/about") O aplikacji
+          a.button(href="/kontakt") Kontakt
     main
       .middle-text
         .content-text
           h1 Bądź na bieżąco!
         form#main
           input(type="search" placeholder="Search")
-          a.button(href="event.html") Idź
+          a.button(href="/event") Idź
         br
     .dropdown
       button.dropbtn Co?
@@ -33,12 +33,12 @@ html(lang="pl")
     main
       .imagebutton
         button.imgbtn
-          a(href="event.pug") event
+          a(href="/event") event
         button.imgbtn
-          a(href="event.pug") event
+          a(href="/event") event
         button.imgbtn
-          a(href="event.pug") event
+          a(href="/event") event
         button.imgbtn
-          a(href="event.pug") event
+          a(href="/event") event
     footer
       p FOOTER
