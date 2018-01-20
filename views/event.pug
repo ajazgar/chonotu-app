@@ -1,0 +1,32 @@
+doctype html
+html(lang="pl")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale-1")
+    link(rel="stylesheet" href="/stylesheets/style.css")
+    title Strona główna
+  body
+    nav
+      .inner-topnav
+        a.button(href="index.pug")
+          img(src="" alt="LOGO")
+        .topnav-buttons
+          a.button(href="zarejestruj.html") Zarejestruj się
+          a.button(href="zaloguj.html") Zaloguj się
+          a.button(href="about.html") O aplikacji
+          a.button(href="kontakt.html") Kontakt
+    main
+      .row
+        .column1
+          img(src="" alt="event")
+        .column2
+          h2 Cena: 
+          button.buybtn
+            a(href="buyticket.html") Kup bilet
+      .row
+        h2
+          br
+          | Wydarzenie
+        |       Jakiś opis
+    footer
+      p FOOTER
