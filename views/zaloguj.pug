@@ -1,0 +1,30 @@
+doctype html
+html(lang='pl')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale-1')
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    title Strona główna
+  body
+    nav
+      .inner-topnav
+        a.button(href="/")
+          img(src='', alt='LOGO')
+        .topnav-buttons
+          a.button(href='/zarejestruj') Zarejestruj się
+          a.button(href='/zaloguj') Zaloguj się
+          a.button(href='/about') O aplikacji
+          a.button(href='/kontakt') Kontakt
+    main
+      .middle-text
+        .content-text
+          h1 Witaj ponownie!
+        form
+          input(type='text', name='Login', placeholder='Login/Mail')
+        form
+          input(type='password', name='Haslo', placeholder='Hasło')
+        br
+        .content-buttons
+          .button Zaloguj
+    footer
+      p FOOTER
