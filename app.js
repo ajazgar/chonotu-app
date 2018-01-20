@@ -43,9 +43,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-router.get("/event", (req, res) => {
-    res.render("event"
-     );
-});
 
 module.exports = app;
