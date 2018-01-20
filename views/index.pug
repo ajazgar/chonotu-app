@@ -1,5 +1,44 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html(lang="pl")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale-1")
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    title Strona główna
+  body
+    nav
+      .inner-topnav
+        a.button(href="main/")
+          img(src="" alt="LOGO")
+        .topnav-buttons
+          a.button(href="zarejestruj.html") Zarejestruj się
+          a.button(href="zaloguj.html") Zaloguj się
+          a.button(href="about.html") O aplikacji
+          a.button(href="kontakt.html") Kontakt
+    main
+      .middle-text
+        .content-text
+          h1 Bądź na bieżąco!
+        form#main
+          input(type="search" placeholder="Search")
+          a.button(href="event.html") Idź
+        br
+    .dropdown
+      button.dropbtn Co?
+      .dropdown-content
+        a(href="#") typ1
+        a(href="#") typ2
+        a(href="#") typ3
+    input(type="date" name="date" maxwidth="10px" style="left: 15%;")
+    main
+      .imagebutton
+        button.imgbtn
+          a(href="event.pug") event
+        button.imgbtn
+          a(href="event.pug") event
+        button.imgbtn
+          a(href="event.pug") event
+        button.imgbtn
+          a(href="event.pug") event
+    footer
+      p FOOTER
