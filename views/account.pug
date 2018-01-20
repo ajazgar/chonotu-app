@@ -1,0 +1,49 @@
+doctype html
+html(lang='pl')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale-1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    title Moje konto
+  body
+    nav
+      .inner-topnav
+        a.button(href='main.html')
+          img(src='', alt='LOGO')
+        .topnav-buttons
+          a.button(href='zarejestruj.html') Zarejestruj się
+          a.button(href='zaloguj.html') Zaloguj się
+          a.button(href='about.html') O aplikacji
+          a.button(href='kontakt.html') Kontakt
+    main
+      .user-info
+        h3 Nazwa użytkownika
+        ul
+          li Data urodzenia
+          li Mail
+          li Telefon
+      .content-buttons
+        .button Edytuj dane
+        .button Usuń konto
+      .user-tickets
+        h2 Zakupione bilety
+        img(src='', alt='event-image')
+        .event-info
+          h2 Nazwa wydarzenia
+          p Ilość biletów:
+          p Cena:
+      .user-tickets
+        img(src='', alt='event-image')
+        .event-info
+          h2 Nazwa wydarzenia
+          p Ilość biletów:
+          p Cena:
+      .user-tickets
+        img(src='', alt='event-image')
+        .event-info
+          h2 Nazwa wydarzenia
+          p Ilość biletów:
+          p Cena:
+    footer
+      p FOOTER
+

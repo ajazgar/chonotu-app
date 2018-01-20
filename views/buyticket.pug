@@ -1,0 +1,49 @@
+doctype html
+html(lang='pl')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale-1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    title Kup bilet
+  body
+    header
+      nav.onlylogo
+        a.button(href='main.html')
+          img(src='', alt='LOGO')
+    main
+      h3#usersheader Wybierz liczbę biletów
+      br
+      div(style='width: 100%; display: table;')
+        div(style='display: table-row')
+          div(style='width: 500px; display: table-cell;')
+            h2 [CENA]
+            br
+            form(action='')
+              input#1(type='radio', name='radio', value='1')
+              label(for='1') 1
+              br
+              input#2(type='radio', name='radio', value='2')
+              label(for='2') 2
+              br
+              input#3(type='radio', name='radio', value='3')
+              label(for='3') 3
+              br
+              input#4(type='radio', name='radio', value='4')
+              label(for='4') 4
+              br
+              input#5(type='radio', name='radio', value='5')
+              label(for='5') 5
+              br
+          div(style='display: table-cell;')
+            br
+            img(src='', alt='EVENT_IMAGE')
+            br
+            h3#usersheader EVENTNAME
+            br
+            button#buyticketbutton Kup bilet
+            button#cancelbutton
+              a.cancelbutton(href='event.html') Anuluj
+      #buy
+    footer
+      p FOOTER
+
