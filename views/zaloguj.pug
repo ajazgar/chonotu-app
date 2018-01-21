@@ -19,12 +19,11 @@ html(lang='pl')
       .middle-text
         .content-text
           h1 Witaj ponownie!
-        form
-          input(type='text', name='Login', placeholder='Login/Mail')
-        form
-          input(type='password', name='Haslo', placeholder='Hasło')
-        br
-        .content-buttons
-          .button Zaloguj
+        form#fields(action='/checkIfUsernameExists')
+          input#login.txt(type='text', name='login', required='', placeholder='Login/Mail')
+          br
+          input.txt(type='password', name='password', required='', placeholder='Hasło')
+          br
+          input(type='submit', value='Zaloguj')
     footer
       p FOOTER
