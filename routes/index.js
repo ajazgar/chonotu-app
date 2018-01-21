@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'joannaDB'
+  password : 'password'
 });
 connection.connect();
 connection.query('USE chonotu');
@@ -64,18 +64,54 @@ router.all('/delete', function(req, res, next) {
   var query = connection.query('delete from user where login=?', post, function (error, results, fields) {
     if (error) throw error;
     if(req.query.login == undefined) res.redirect('/'); //in case of deleting own account
-    else res.redirect('/?login='+req.query.login);  //case: admin delete somebody
+    else res.redirect('/listofusers?login='+req.query.login);  //case: admin delete somebody
   });
 });
+
+
+router.get('/listofusers', function(req, res, next) {
+
+if(req.query.userToSearch != undefined){
+  var values = [];
+  
+  var post  = {login: req.query.userToSearch};
+  connection.query('SELECT * FROM user where ?', post, function(err, rows, fields) {
+            var person = {
+              'login':rows[0].login
+            };
+            values.push(person);
+      res.render('listofusers', {"values": values});
+  });
+}
+else{
+  var values = [];
+  connection.query('SELECT * FROM user', function(err, rows, fields) {
+        for (var i in rows) {
+          var person = {
+            'login':rows[i].login,
+            'email':rows[i].email,
+            'date_of_birth':rows[i].date_of_birth
+          };
+          values.push(person);
+      }
+
+      res.render('listofusers', {"values": values});
+  });
+}
+  
+});
+
 
 
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'Express' });
 });
 
+
 router.get('/account', function(req, res, next) {
   res.render('account', { title: 'Express' });
 });
+
 
 router.get('/buyticket', function(req, res, next) {
   res.render('buyticket', { title: 'Express' });
@@ -89,9 +125,6 @@ router.get('/kontakt', function(req, res, next) {
   res.render('kontakt', { title: 'Express' });
 });
 
-router.get('/listofusers', function(req, res, next) {
-  res.render('listofusers', { title: 'Express' });
-});
 
 
 module.exports = router;

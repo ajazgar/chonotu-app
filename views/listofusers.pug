@@ -17,26 +17,14 @@ html(lang="pl")
             a.buttonlistofusers(href="/zaloguj") Wyloguj się
     main
       #search
-        form#searchfield(action="anotherpage.html")
-          input(type="text" required="required")
+        form#searchfield(action="listofusers")
+          input(type="text" name='userToSearch' required="required")
           input(type="submit" value="Search")
         h3#usersheader Użytkownicy
         br
       ol#listofusers
-        li
-          label(for="userbutton") User 1
-          button#userbutton Usuń
-        li
-          label(for="userbutton") User 2
-          button#userbutton Usuń
-        li
-          label(for="userbutton") User 3
-          button#userbutton Usuń
-        li
-          label(for="userbutton") User 4
-          button#userbutton Usuń
-        li
-          label(for="userbutton") User 5
-          button#userbutton Usuń
+        each val in values
+          li= val.login
+          a.button#userbutton(href='/delete?login=Admin&userToDelete=' + val.login) Usuń
     footer
       p FOOTER
