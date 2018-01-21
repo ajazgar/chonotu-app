@@ -1,9 +1,27 @@
 var express = require('express');
 var router = express.Router();
 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'joannaDB'
+});
+connection.connect();
+connection.query('USE chonotu');
+
+
+
 /* GET home page. */
+
+//http://localhost:3000/?login=Admin
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var post  = {login: req.query.login};
+  var query = connection.query('select * from user where ?', post, function (error, results, fields) {
+    if (error) throw error;
+    res.render('index', { title: results[0].email });   
+  });
+  console.log(query.sql);
 });
 
 router.get('/about', function(req, res, next) {
