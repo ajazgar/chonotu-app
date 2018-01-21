@@ -45,6 +45,29 @@ router.get('/zaloguj', function(req, res, next) {
     res.render('zaloguj'); 
 });
 
+//http://localhost:3000/zarejestruj
+router.get('/zarejestruj', function(req, res, next) {
+  res.render('zarejestruj');
+});
+
+router.get('/addUser', function(req, res, next) {
+  var post = [req.query.login, req.query.password, req.query.email, req.query.date_of_birth ];
+  var query = connection.query('insert into user values(?,?,?,?)', post, function (error, results, fields) {
+    if (error) throw error;
+    res.redirect('/zaloguj');
+  });
+});
+
+//http://localhost:3000/delete?login=Admin&userToDelete=AndrzejTomczynski
+router.all('/delete', function(req, res, next) {
+  var post = [req.query.userToDelete];
+  var query = connection.query('delete from user where login=?', post, function (error, results, fields) {
+    if (error) throw error;
+    if(req.query.login == undefined) res.redirect('/'); //in case of deleting own account
+    else res.redirect('/?login='+req.query.login);  //case: admin delete somebody
+  });
+});
+
 
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'Express' });
@@ -71,7 +94,4 @@ router.get('/listofusers', function(req, res, next) {
 });
 
 
-router.get('/zarejestruj', function(req, res, next) {
-  res.render('zarejestruj', { title: 'Express' });
-});
 module.exports = router;

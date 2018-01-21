@@ -6,6 +6,12 @@ html(lang='pl')
     link(rel='stylesheet', href='/stylesheets/style.css')
     title Moje konto
   body
+    script.
+      function redirectToDelete() {
+      var login = location.search.split('login=')[1];
+      var url= '/delete?userToDelete=' + login;
+      window.location.replace(url);
+      }
     nav
       .inner-topnav
         a.button(href='/')
@@ -23,8 +29,8 @@ html(lang='pl')
           li Mail
           li Telefon
       .content-buttons
+        button.button(onclick='redirectToDelete()') Usuń konto
         .button Edytuj dane
-        .button Usuń konto
       .user-tickets
         h2 Zakupione bilety
         img(src='', alt='event-image')

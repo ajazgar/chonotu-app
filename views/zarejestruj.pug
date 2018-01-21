@@ -19,18 +19,17 @@ html(lang='pl')
       .middle-text
         .content-text
           h1 Dołącz do nas!
-        form
-          input(type='text', name='Login', placeholder='Login')
-        form
-          input(type='password', name='Haslo', placeholder='Hasło')
-        form
-          input(type='password', name='Haslo', placeholder='Powtórz hasło')
-        form
-          input(type='text', name='Login', placeholder='Mail')
-        form
-          input(type='date', name='bday', placeholder='Login/Mail')
-        br
-        .content-buttons
-          .button Zarejestruj się!
+        form#fields(action='/addUser')
+          input.txt(type='text', name='login', required='', placeholder='Login')
+          br
+          input.txt(type='password', name='password', required='', placeholder='Hasło')
+          br
+          input.txt(type='email', name='email', required='', placeholder='Email')
+          br
+          input.txt(type='date', name='date_of_birth', required='')
+          br
+          input(type='submit', value='Zarejestruj się')
     footer
       p FOOTER
+
+
