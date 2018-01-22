@@ -10,18 +10,6 @@ var connection = mysql.createConnection({
 connection.connect();
 connection.query('USE chonotu');
 
-
-/* GET home page. */
-
-//http://localhost:3000/?login=Admin
-// router.get('/', function(req, res, next) {
-//   var post  = {login: req.query.login};
-//   var query = connection.query('select * from user where ?', post, function (error, results, fields) {
-//     if (error) throw error;
-//     res.render('index', { title: results[0].email });   
-//   });
-//   console.log(query.sql);
-
 //http://localhost:3000/account?login=Admin
 router.get('/account', function(req, res, next) {
   var post = [req.query.login];
@@ -41,7 +29,6 @@ router.get('/mytickets', function(req, res, next) {
             'eventname':rows[i].eventname,
             'how_many_tickets':rows[i].how_many_tickets,
           };
-          console.log(ticket);
           values.push(ticket);
       }
       res.render('mytickets', {"values": values});
@@ -60,11 +47,9 @@ router.get('/', function(req, res, next) {
             }
             var person = rows[i+j].eventname;
             valuestemp.push(person);
-            console.log(valuestemp);
           }
           values.push(valuestemp)
       }
-      console.log(values);
       res.render('index', {"values": values});
   });
 });
@@ -150,12 +135,6 @@ else{
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'Express' });
 });
-
-
-// router.get('/account', function(req, res, next) {
-//   res.render('account', { title: 'Express' });
-// });
-
 
 router.all('/buyticket', function(req, res, next) {
   var post = [req.query.eventName];
