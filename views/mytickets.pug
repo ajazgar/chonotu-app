@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 doctype html
 html(lang='pl')
   head
@@ -32,37 +31,3 @@ html(lang='pl')
           p=val.how_many_tickets
     footer
       p FOOTER
-=======
-doctype html
-html(lang='pl')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale-1')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    title Moje bilety
-  body
-    script.
-      function redirectToAccount() {
-      var login = location.search.split('login=')[1];
-      var url= '/account?login=' + login;
-      window.location.replace(url);
-      }
-    nav
-      .inner-topnav
-        a.button(href='/')
-          img(src='', alt='LOGO')
-        .topnav-buttons
-          a.button(href='/about') O aplikacji
-          a.button(href='/kontakt') Kontakt
-    main
-      .content-buttons
-        button.button(onclick='redirectToAccount()', style='float: left; width: 200px') Wróć do konta
-      each val in values
-        .user-tickets
-        .event-info
-          h2=val.eventname
-          h5 Ilość biletów:
-          p=val.how_many_tickets
-    footer
-      p FOOTER
->>>>>>> ae280913be3d1eadff46361d864aa3c69e788069
