@@ -36,7 +36,7 @@ html(lang="pl")
         .imagebutton
           for val in event
             button.imgbtn
-              a(href="/event?event=" + val)=val
+              a(href="/event?eventName=" + val)=val
     footer
       p FOOTER
       p !{JSON.stringify(title)}
