@@ -3,12 +3,12 @@ html(lang='pl')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale-1')
-    link(rel='stylesheet' href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheet/style.css')
     title Strona główna
   body
     nav
       .inner-topnav
-        a.button(href="/")
+        a.button(href='/')
           img(src='', alt='LOGO')
         .topnav-buttons
           a.button(href='/zarejestruj') Zarejestruj się
@@ -22,8 +22,7 @@ html(lang='pl')
         form
           input(type='text', name='Login', placeholder='Wpisz twój mail...')
         form
-          textarea(name='Text1', cols='40', rows='5', placeholder='O czym chcesz do nas napisać?')
-        br
+          textarea(name='message', placeholder='O czym chcesz do nas napisać?', style='resize: none; height: 150px;')
         .content-buttons
           .button Wyślij
     footer
