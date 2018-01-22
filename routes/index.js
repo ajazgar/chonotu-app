@@ -37,6 +37,7 @@ router.get('/mytickets', function(req, res, next) {
 
 
 router.get('/', function(req, res, next) {
+  if(req.query.eventToSearch == undefined){
   var values = [];
   connection.query('SELECT * FROM event', function(err, rows, fields) {
         for (var i=0; i<rows.length; i=i+4) {
@@ -52,6 +53,19 @@ router.get('/', function(req, res, next) {
       }
       res.render('index', {"values": values});
   });
+}
+  else{
+    var values = [];
+    
+    var post  = {eventname: req.query.eventToSearch};
+    connection.query('SELECT * FROM event where ?', post, function(err, rows, fields) {
+              var valuestemp = [];
+              var person = rows[0].eventname
+              valuestemp.push(person);
+              values.push(valuestemp);
+        res.render('index', {"values": values});
+    });
+  }
 });
 
 //http://localhost:3000/checkIfUsernameExists?login=Admin&password=password
@@ -157,6 +171,7 @@ router.all('/event', function(req, res, next) {
 router.get('/kontakt', function(req, res, next) {
   res.render('kontakt', { title: 'Express' });
 });
+
 
 
 
