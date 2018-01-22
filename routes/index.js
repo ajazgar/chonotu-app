@@ -135,8 +135,8 @@ router.all('/buyticket', function(req, res, next) {
   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
     var cena = row[0].ticket_price;
     console.log({"values": cena})
-res.render('buyticket',  {values: cena});
-});
+    res.render('buyticket',  {values: cena});
+  });
 });
 
 router.get('/event', function(req, res, next) {
