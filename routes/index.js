@@ -22,19 +22,6 @@ connection.query('USE chonotu');
 //   // });
 //   // console.log(query.sql);
 
-//   res.render('index');   
-// });
-// router.get('/', function(req, res, next) {
-//   var events = [];
-//   connection.query('SELECT * FROM event', function(err, rows, fields) {
-//         for (var i in rows) {
-//           events.push({'event': rows[i].eventname});
-//         }
-//       console.log(events);
-//       res.render('index', events);
-//   });
-// });
-
 router.get('/', function(req, res, next) {
   var values = [];
   connection.query('SELECT * FROM event', function(err, rows, fields) {
@@ -54,14 +41,6 @@ router.get('/', function(req, res, next) {
       res.render('index', {"values": values});
   });
 });
-// var events4 = [];
-// var temparray = [];
-// var i,j,chunk = 4;        
-// for (i=0,j=events.length; i<j; i+=chunk+1) {
-//   temparray = events.slice(i,i+chunk);
-//   events4.push(temparray);
-// }
-// console.log(events4);
 
 //http://localhost:3000/checkIfUsernameExists?login=Admin&password=password
 router.get('/checkIfUsernameExists', function(req, res, next) {
