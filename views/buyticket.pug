@@ -7,9 +7,13 @@ html(lang='pl')
     title Kup bilet
   body
     header
-      nav.onlylogo
-        a.button(href='/')
-          img(src='', alt='LOGO')
+      nav
+        .inner-topnav
+          a.button(href='/')
+            img(src='', alt='LOGO')
+          .topnav-buttons
+            a.button(href='/about') O aplikacji
+            a.button(href='/kontakt') Kontakt
     main
       h3#usersheader Wybierz liczbę biletów
       br
