@@ -22,8 +22,6 @@ html(lang='pl')
         a.button(href='/')
           img(src='', alt='LOGO')
         .topnav-buttons
-          a.button(href='/zarejestruj') Zarejestruj się
-          a.button(href='/zaloguj') Zaloguj się
           a.button(href='/about') O aplikacji
           a.button(href='/kontakt') Kontakt
     main
@@ -34,9 +32,31 @@ html(lang='pl')
           li Mail: !{JSON.stringify(email)}
       .content-buttons
         button.button(onclick='redirectToDelete()') Usuń konto
+<<<<<<< HEAD
+      .user-tickets
+        h2 Zakupione bilety
+        img(src='', alt='event-image')
+        .event-info
+          h2 Nazwa wydarzenia
+          p Ilość biletów:
+          p Cena:
+      .user-tickets
+        img(src='', alt='event-image')
+        .event-info
+          h2 Nazwa wydarzenia
+          p Ilość biletów:
+          p Cena:
+      .user-tickets
+        img(src='', alt='event-image')
+        .event-info
+          h2 Nazwa wydarzenia
+          p Ilość biletów:
+          p Cena:
+=======
         button.button(onclick='redirectToTickets()') Moje bilety
       
       
+>>>>>>> origin/master
     footer
       p FOOTER
 
