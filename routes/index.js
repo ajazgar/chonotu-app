@@ -133,7 +133,7 @@ router.get('/account', function(req, res, next) {
 router.all('/buyticket', function(req, res, next) {
   var values = [];
   var post = [req.query.eventName];
-  connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, results, fields){
+  connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
     var cena = {
         'ticket_price':row[0].ticket_price
     };
