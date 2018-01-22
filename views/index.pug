@@ -17,19 +17,22 @@ html(lang="pl")
           a.button(href="/kontakt") Kontakt
     main
       .middle-text
-        .content-text
+        .content-text(style="width: 100%;")
           h1 Bądź na bieżąco!
         form#main(action="/")
           input(type="text" name='eventToSearch' required="required")
           input.button(type="submit" value="Search")
         br
-    .dropdown
-      button.dropbtn Co?
-      .dropdown-content
-        a(href="#") Koncert
-        a(href="#") Teatr
-        a(href="#") Kino
-    input(type="date" name="date" maxwidth="10px" style="left: 15%;")
+      .mainThings
+        .dropdown
+          button.dropbtn Co?
+          .dropdown-content
+            a(href="/searchCategory?cat=concert") Koncert
+            a(href="/searchCategory?cat=theatre") Teatr
+            a(href="/searchCategory?cat=cinema") Kino
+        form#main2(action="/searchDate")
+          input(type="date" name="dateEvent")
+          input.button(type="submit" value="Submit")
 
     main2
       for event in values

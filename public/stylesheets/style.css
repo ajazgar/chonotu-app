@@ -76,7 +76,7 @@ main2 {
 }
 
 .content-text {
-    width: 100%;
+    width: 50%;
     overflow: hidden;
 }
 
@@ -112,6 +112,20 @@ input[type="submit"][value="Search"] {
 }
 
 input[name="eventToSearch"] {
+    position: absolute;
+    left: 0%;
+    width: 200px !important;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('');
+    background-position: 95% 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+}
+input[name="dateEvent"] {
     position: absolute;
     left: 0%;
     width: 200px !important;
@@ -199,7 +213,7 @@ textarea{
     width: 80px;
 }
 
-#main > .button {
+#main3 > .button {
     line-height: 48px;
     overflow: visible;
     position: relative;
@@ -220,7 +234,7 @@ textarea{
 #main2 {
     width: 200px;
     height: 48px;
-    left: 50%;
+    left: 36%;
     margin-left: -100px;
     position: relative;
 }
@@ -258,7 +272,7 @@ textarea{
 
 .dropdown {
     position: relative;
-    left: 15%;
+    left: 5%;
     width: 35%;
     display: inline-block;
 }
@@ -440,6 +454,10 @@ footer {
       top: 0px;
       background: #333;
       color: white;
+}
+.mainThings{
+    display: flex;
+    height: 54px;
 }
 
 #buyticketbutton{
