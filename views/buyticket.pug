@@ -9,34 +9,44 @@ html(lang='pl')
     header
       nav
         .inner-topnav
+<<<<<<< HEAD
           a.button(href='/')
             img(src='', alt='LOGO')
           .topnav-buttons
             a.button(href='/about') O aplikacji
             a.button(href='/kontakt') Kontakt
+=======
+          a.button(href="/")
+            img(src="" alt="LOGO")
+>>>>>>> origin/master
     main
       h3#usersheader Wybierz liczbę biletów
       br
       div(style='width: 100%; display: table;')
         div(style='display: table-row')
           div(style='width: 500px; display: table-cell;')
-            h2
-              p values.cena
+            h2 Cena:
+              p #{values} zł
             form(action='')
               input#1(type='radio', name='radio', value='1')
               label(for='1') 1
+              var #{+1*values} zł
               br
               input#2(type='radio', name='radio', value='2')
               label(for='2') 2
+              var #{+2*values} zł
               br
               input#3(type='radio', name='radio', value='3')
               label(for='3') 3
+              var #{+3*values} zł
               br
               input#4(type='radio', name='radio', value='4')
               label(for='4') 4
+              var #{+4*values} zł
               br
               input#5(type='radio', name='radio', value='5')
               label(for='5') 5
+              var #{+5*values} zł
               br
           div(style='display: table-cell;')
             br

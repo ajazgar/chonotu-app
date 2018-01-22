@@ -12,6 +12,11 @@ html(lang='pl')
       var url= '/delete?userToDelete=' + login;
       window.location.replace(url);
       }
+      function redirectToTickets() {
+      var login = location.search.split('login=')[1];
+      var url= '/mytickets?login=' + login;
+      window.locationreplace(url);
+      }
     nav
       .inner-topnav
         a.button(href='/')
@@ -21,13 +26,13 @@ html(lang='pl')
           a.button(href='/kontakt') Kontakt
     main
       .user-info
-        h3 Nazwa użytkownika
+        h3 Cześć, !{JSON.stringify(login)}
         ul
-          li Data urodzenia
-          li Mail
-          li Telefon
+          li Data urodzenia: !{JSON.stringify(date_of_birth)}
+          li Mail: !{JSON.stringify(email)}
       .content-buttons
         button.button(onclick='redirectToDelete()') Usuń konto
+<<<<<<< HEAD
       .user-tickets
         h2 Zakupione bilety
         img(src='', alt='event-image')
@@ -47,6 +52,11 @@ html(lang='pl')
           h2 Nazwa wydarzenia
           p Ilość biletów:
           p Cena:
+=======
+        button.button(onclick='redirectToTickets()') Moje bilety
+      
+      
+>>>>>>> origin/master
     footer
       p FOOTER
 

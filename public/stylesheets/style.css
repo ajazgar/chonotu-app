@@ -67,6 +67,13 @@ main {
     padding-right: 15%;
     overflow: hidden;
 }
+main2 {
+    padding-top: 50px;
+    padding-left: 15%;
+    padding-right: 15%;
+    overflow: hidden;
+    display: block;
+}
 
 .content-text {
     width: 100%;
@@ -155,6 +162,32 @@ textarea{
 }
 
 #main > .button {
+    line-height: 48px;
+    overflow: visible;
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 110px;
+    color: #fff;
+    background: #D88F3C;
+    border-radius: 25px;
+    margin-right: 0;
+    float: right;
+    height: 48px;
+    width: 80px;
+}
+#main2 {
+    width: 200px;
+    height: 48px;
+    left: 50%;
+    margin-left: -100px;
+    position: relative;
+}
+
+#main2 > .button {
     line-height: 48px;
     overflow: visible;
     position: relative;
@@ -294,7 +327,7 @@ textarea{
 
 .imagebutton {
     position: relative;
-    left: 0;
+    margin: auto;
     width: 100%;
     padding-top: 50px;
     display: flex;
@@ -312,6 +345,25 @@ textarea{
     margin-left: 1%;
     margin-right: 1%;
     display: inline;
+}
+a.button.imgbtn {
+    background-color: buttonface;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    min-width:20%;
+    text-align: center;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: inline;
+}
+
+a.button.imgbtn:hover {
+    background-color: #7f8c8d;
+    color: #000;
 }
 
 #up {

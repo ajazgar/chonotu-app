@@ -13,14 +13,41 @@ connection.query('USE chonotu');
 
 /* GET home page. */
 
-// //http://localhost:3000/?login=Admin
+//http://localhost:3000/?login=Admin
 // router.get('/', function(req, res, next) {
-//   // var post  = {login: req.query.login};
-//   // var query = connection.query('select * from user where ?', post, function (error, results, fields) {
-//   //   if (error) throw error;
-//   //   res.render('index', { title: results[0].email });   
-//   // });
-//   // console.log(query.sql);
+//   var post  = {login: req.query.login};
+//   var query = connection.query('select * from user where ?', post, function (error, results, fields) {
+//     if (error) throw error;
+//     res.render('index', { title: results[0].email });   
+//   });
+//   console.log(query.sql);
+
+//http://localhost:3000/account?login=Admin
+router.get('/account', function(req, res, next) {
+  var post = [req.query.login];
+	connection.query('select * from user where login=?', post, function (error, rows, fields) {
+	    if (error) throw error;
+	    res.render('account', { login: rows[0].login, email:rows[0].email, date_of_birth: rows[0].date_of_birth });
+	  });
+});
+
+//http://localhost:3000/mytickets?login=Admin
+router.get('/mytickets', function(req, res, next) {
+  var values=[];
+  var post = [req.query.login];
+  connection.query('SELECT * FROM ticket where login=?', post, function(err, rows, fields) {
+        for (var i in rows) {
+          var ticket = {
+            'eventname':rows[i].eventname,
+            'how_many_tickets':rows[i].how_many_tickets,
+          };
+          console.log(ticket);
+          values.push(ticket);
+      }
+      res.render('mytickets', {"values": values});
+  });
+});
+
 
 router.get('/', function(req, res, next) {
   var values = [];
@@ -125,26 +152,23 @@ router.get('/about', function(req, res, next) {
 });
 
 
-router.get('/account', function(req, res, next) {
-  res.render('account', { title: 'Express' });
+// router.get('/account', function(req, res, next) {
+//   res.render('account', { title: 'Express' });
+// });
+
+
+router.all('/buyticket', function(req, res, next) {
+  var post = [req.query.eventName];
+  connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
+    var cena = row[0].ticket_price;
+res.render('buyticket',  {values: cena});
 });
-
-
-router.get('/buyticket', function(req, res, next) {
-//   var values = [];
-//   var post = [req.query.eventName];
-//   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, results, fields)){
-//     var cena = {
-//         'ticket_price':row[0].ticket_price;
-//     };
-//     values.push(cena);
-//   }
-// res.render('buyticket', { "values": values });
-res.render('buyticket', { title: 'Express' });  
 });
 
 router.get('/event', function(req, res, next) {
-  res.render('event', { title: 'Express' });
+  var post = req.query.eventName;
+  console.log(post)
+  res.render('event', { post });
 });
 
 router.get('/kontakt', function(req, res, next) {
