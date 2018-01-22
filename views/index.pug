@@ -26,17 +26,16 @@ html(lang="pl")
     .dropdown
       button.dropbtn Co?
       .dropdown-content
-        a(href="#") typ1
-        a(href="#") typ2
-        a(href="#") typ3
+        a(href="#") Koncert
+        a(href="#") Teatr
+        a(href="#") Kino
     input(type="date" name="date" maxwidth="10px" style="left: 15%;")
 
-    main
+    main2
       for event in values
         .imagebutton
           for val in event
-            button.imgbtn
-              a(href="/event?event=" + val)=val
+            a.button.imgbtn(href="/event?eventName=" + val)=val
     footer
       p FOOTER
       p !{JSON.stringify(title)}

@@ -31,6 +31,10 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+app.use((req, res, next) => {
+  res.locals.eventName= req.user;
+  next();
+});
  
 // error handler
 app.use(function(err, req, res, next) {
