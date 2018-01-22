@@ -35,7 +35,7 @@ CREATE TABLE `EVENT` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 INSERT INTO `EVENT` VALUES 
-('Morderstwo w Orient Expressie', 'multikinoKrakow', '2018-02-12', '16:00:00', 100, 10, 'CINEMA'),
+('Morderstwo', 'multikinoKrakow', '2018-02-12', '16:00:00', 100, 10, 'CINEMA'),
 ('Thor:Ragnarok', 'multikinoKrakow', '2018-02-07', '20:00:00', 30, 15, 'CINEMA'),
 ('Pierwsza Gwiazdka', 'cinemacityKrakow', '2018-01-29', '12:00:00', 47, 14, 'CINEMA'),
 ('Mayday 2', 'bagatelaKrakow', '2018-03-11', '21:30:00', 200, 45, 'THEATRE'),
@@ -57,7 +57,7 @@ CREATE TABLE `TICKET` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 INSERT INTO `TICKET`(login,eventname, how_many_tickets) VALUES 
-('AndrzejTomczynski','Morderstwo w Orient Expressie', 2),
+('AndrzejTomczynski','Morderstwo', 2),
 ('JanLinus','Pinokio', 3),
 ('JanLinus','Mayday 2', 1),
 ('AleksandraNowak','Opener', 10),
