@@ -1,6 +1,6 @@
 
-DROP TABLE IF EXISTS `TICKET`;
-DROP TABLE IF EXISTS `EVENT`;
+DROP TABLE IF EXISTS `ticket`;
+DROP TABLE IF EXISTS `event`;
 DROP TABLE IF EXISTS `user`;
 
 
@@ -23,7 +23,7 @@ INSERT INTO `user` VALUES ('JanLinus','password','jlinus@gmail.com', '2018-01-01
 INSERT INTO `user` VALUES ('MieczyslawMietkowski','password','mmietkowski@gmail.com', '2018-01-01');
 
 
-CREATE TABLE `EVENT` (
+CREATE TABLE `event` (
   `eventname` VARCHAR(70) NOT NULL,
   `place` VARCHAR(100) NOT NULL,
   `event_date` DATE NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `EVENT` (
   PRIMARY KEY (`eventname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-INSERT INTO `EVENT` VALUES 
+INSERT INTO `event` VALUES 
 ('Morderstwo', 'multikinoKrakow', '2018-02-12', '16:00:00', 100, 10, 'CINEMA'),
 ('Thor:Ragnarok', 'multikinoKrakow', '2018-02-07', '20:00:00', 30, 15, 'CINEMA'),
 ('Pierwsza Gwiazdka', 'cinemacityKrakow', '2018-01-29', '12:00:00', 47, 14, 'CINEMA'),
@@ -46,7 +46,7 @@ INSERT INTO `EVENT` VALUES
 ('Opener', 'opener', '2018-06-23','15:00:00', 500, 400, 'CONCERT');
 
 
-CREATE TABLE `TICKET` (
+CREATE TABLE `ticket` (
   `id` MEDIUMINT NOT NULL AUTO_INCREMENT, 
   `login` varchar(50) NOT NULL,
   `eventname` varchar(70) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `TICKET` (
   FOREIGN KEY(`eventname`) REFERENCES EVENT (`eventname`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-INSERT INTO `TICKET`(login,eventname, how_many_tickets) VALUES 
+INSERT INTO `ticket`(login,eventname, how_many_tickets) VALUES 
 ('AndrzejTomczynski','Morderstwo', 2),
 ('JanLinus','Pinokio', 3),
 ('JanLinus','Mayday 2', 1),

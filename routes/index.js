@@ -131,6 +131,8 @@ router.get('/account', function(req, res, next) {
 
 
 router.get('/buyticket', function(req, res, next) {
+//  var post = [req.query.eventName];
+//  connection.query('SELECT ticket_price FROM event where')
   res.render('buyticket', { title: 'Express' });
 });
 
