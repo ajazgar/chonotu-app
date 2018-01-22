@@ -15,7 +15,7 @@ html(lang='pl')
       function redirectToTickets() {
       var login = location.search.split('login=')[1];
       var url= '/mytickets?login=' + login;
-      window.locationreplace(url);
+      window.location.replace(url);
       }
     nav
       .inner-topnav
