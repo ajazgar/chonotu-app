@@ -47,11 +47,11 @@ html(lang='pl')
             br
             img(src='', alt='EVENT_IMAGE')
             br
-            h3#usersheader EVENTNAME
+            h3#usersheader #{post}
             br
             button#buyticketbutton Kup bilet
             button#cancelbutton
-              a.cancelbutton(href='/event') Anuluj
+              a.cancelbutton(href="/event?eventName="+post) Anuluj
       #buy
     footer
       p FOOTER
