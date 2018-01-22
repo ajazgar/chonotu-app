@@ -35,6 +35,43 @@ router.get('/mytickets', function(req, res, next) {
   });
 });
 
+router.get('/searchCategory', function(req, res, next) {
+  var values = []; 
+  var post  = {category: req.query.cat};
+  connection.query('SELECT * FROM event where ?', post, function(err, rows, fields) {
+    for (var i=0; i<rows.length; i=i+4) {
+      var valuestemp = [];
+      for(var j=0; j<4; j++){
+        if(i+j>=rows.length) {
+          break;
+        }
+        var person = rows[i+j].eventname;
+        valuestemp.push(person);
+      }
+      values.push(valuestemp)
+  }
+      res.render('index', {"values": values});
+  });
+});
+
+router.get('/searchDate', function(req, res, next) {
+  var values = []; 
+  var post  = {category: req.query.cat};
+  connection.query('SELECT * FROM event where ?', post, function(err, rows, fields) {
+    for (var i=0; i<rows.length; i=i+4) {
+      var valuestemp = [];
+      for(var j=0; j<4; j++){
+        if(i+j>=rows.length) {
+          break;
+        }
+        var person = rows[i+j].eventname;
+        valuestemp.push(person);
+      }
+      values.push(valuestemp)
+  }
+      res.render('index', {"values": values});
+  });
+});
 
 router.get('/', function(req, res, next) {
   if(req.query.eventToSearch == undefined){
