@@ -83,6 +83,15 @@ router.get('/checkIfUsernameExists', function(req, res, next) {
   });
 });
 
+router.get('/checkIfLogged', function(req, res, next){
+  var post = [req.query.login];
+  var query = connection.query('select login from user where login=?', post, function (error, results, fields){
+    if(result[0].c == 1){
+      res.render
+    }
+  })
+})
+
 //http://localhost:3000/zaloguj
 router.get('/zaloguj', function(req, res, next) {
     res.render('zaloguj'); 
@@ -98,6 +107,14 @@ router.get('/addUser', function(req, res, next) {
   var query = connection.query('insert into user values(?,?,?,?)', post, function (error, results, fields) {
     if (error) throw error;
     res.redirect('/zaloguj');
+  });
+});
+
+router.get('/addTicket', function(req, res, next) {
+  var post = [req.query.login, req.query.eventname, req.query.how_many_tickets];
+  var query = connection.query('insert into ticket values(?,?,?)', post, function (error, results, fields) {
+    if (error) throw error;
+    res.redirect('/mytickets?login='+req.query.login);
   });
 });
 
