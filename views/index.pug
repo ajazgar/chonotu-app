@@ -19,9 +19,9 @@ html(lang="pl")
       .middle-text
         .content-text
           h1 Bądź na bieżąco!
-        form#main
-          input(type="search" placeholder="Search")
-          a.button(href="/event") Idź
+        form#main(action="/")
+          input(type="text" name='eventToSearch' required="required")
+          input.button(type="submit" value="Search")
         br
     .dropdown
       button.dropbtn Co?

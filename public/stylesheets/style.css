@@ -92,7 +92,26 @@ h1{
     text-align: center;
 }
 
-input[type="search"] {
+
+
+input[type="submit"][value="Search"] {
+    position: absolute;
+    left: 0%;
+    width: 200px !important;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('');
+    background-position: 95% 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    float: right;
+    width: 80px!important;
+}
+
+input[name="eventToSearch"] {
     position: absolute;
     left: 0%;
     width: 200px !important;
@@ -159,6 +178,25 @@ textarea{
     left: 50%;
     margin-left: -100px;
     position: relative;
+}
+
+#main > .button {
+    line-height: 48px;
+    overflow: visible;
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 110px;
+    color: #fff;
+    background: #D88F3C;
+    border-radius: 25px;
+    margin-right: 0;
+    float: right;
+    height: 48px;
+    width: 80px;
 }
 
 #main > .button {
@@ -326,6 +364,7 @@ textarea{
 }   
 
 .imagebutton {
+    place-content: center;
     position: relative;
     margin: auto;
     width: 100%;
