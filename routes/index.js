@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'p37aoeny'
+  password : 'password'
 });
 connection.connect();
 connection.query('USE chonotu');
@@ -131,9 +131,16 @@ router.get('/account', function(req, res, next) {
 
 
 router.get('/buyticket', function(req, res, next) {
-//  var post = [req.query.eventName];
-//  connection.query('SELECT ticket_price FROM event where')
-  res.render('buyticket', { title: 'Express' });
+//   var values = [];
+//   var post = [req.query.eventName];
+//   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, results, fields)){
+//     var cena = {
+//         'ticket_price':row[0].ticket_price;
+//     };
+//     values.push(cena);
+//   }
+// res.render('buyticket', { "values": values });
+res.render('buyticket', { title: 'Express' });  
 });
 
 router.get('/event', function(req, res, next) {
