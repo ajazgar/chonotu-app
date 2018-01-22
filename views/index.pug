@@ -30,16 +30,13 @@ html(lang="pl")
         a(href="#") typ2
         a(href="#") typ3
     input(type="date" name="date" maxwidth="10px" style="left: 15%;")
+
     main
-      .imagebutton
-        button.imgbtn
-          a(href="/event") event
-        button.imgbtn
-          a(href="/event") event
-        button.imgbtn
-          a(href="/event") event
-        button.imgbtn
-          a(href="/event") event
+      for event in values
+        .imagebutton
+          for val in event
+            button.imgbtn
+              a(href="/event")=val
     footer
       p FOOTER
       p !{JSON.stringify(title)}

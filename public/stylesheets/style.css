@@ -291,20 +291,24 @@ textarea{
 
 .imagebutton {
     position: relative;
-    left: 30%;
+    left: 0;
     width: 100%;
-    display: inline-block;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .imgbtn {
-    background-image: url('');
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    width: 10%;
+    width: 20%;
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline;
 }
 
 #up {

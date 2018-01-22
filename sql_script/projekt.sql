@@ -1,10 +1,10 @@
 
 DROP TABLE IF EXISTS `TICKET`;
 DROP TABLE IF EXISTS `EVENT`;
-DROP TABLE IF EXISTS `USER`;
+DROP TABLE IF EXISTS `user`;
 
 
-CREATE TABLE `USER` (
+CREATE TABLE `user` (
   `login` varchar(50) NOT NULL,
   `password` VARCHAR(128) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -12,15 +12,15 @@ CREATE TABLE `USER` (
   PRIMARY KEY (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-INSERT INTO `USER` VALUES ('Admin','password','admin@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('AndrzejTomczynski','password','atomczynski@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('AleksanderNowak','password','anowak@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('RafalPolak','password','rpolak@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('TytusFigiel','password','tfigiel@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('AleksandraNowak','password','aleksandranowak@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('AnnaKowalska','password','akowalska@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('JanLinus','password','jlinus@gmail.com', '2018-01-01');
-INSERT INTO `USER` VALUES ('MieczyslawMietkowski','password','mmietkowski@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('Admin','password','admin@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('AndrzejTomczynski','password','atomczynski@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('AleksanderNowak','password','anowak@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('RafalPolak','password','rpolak@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('TytusFigiel','password','tfigiel@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('AleksandraNowak','password','aleksandranowak@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('AnnaKowalska','password','akowalska@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('JanLinus','password','jlinus@gmail.com', '2018-01-01');
+INSERT INTO `user` VALUES ('MieczyslawMietkowski','password','mmietkowski@gmail.com', '2018-01-01');
 
 
 CREATE TABLE `EVENT` (
@@ -35,14 +35,14 @@ CREATE TABLE `EVENT` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 INSERT INTO `EVENT` VALUES 
-('MorderstwoWOrientExpressie', 'multikinoKrakow', '2018-02-12', '16:00:00', 100, 10, 'CINEMA'),
+('Morderstwo w Orient Expressie', 'multikinoKrakow', '2018-02-12', '16:00:00', 100, 10, 'CINEMA'),
 ('Thor:Ragnarok', 'multikinoKrakow', '2018-02-07', '20:00:00', 30, 15, 'CINEMA'),
-('PierwszaGwiazdka', 'cinemacityKrakow', '2018-01-29', '12:00:00', 47, 14, 'CINEMA'),
-('Mayday2', 'bagatelaKrakow', '2018-03-11', '21:30:00', 200, 45, 'THEATRE'),
-('SzaloneNozyczki', 'bagatelaKrakow', '2018-02-17', '21:00:00', 124, 50, 'THEATRE'),
-('CzarnoksieznikZKrainyOZ', 'slowackiKrakow', '2018-02-10', '19:30:00', 84, 40, 'THEATRE'),
+('Pierwsza Gwiazdka', 'cinemacityKrakow', '2018-01-29', '12:00:00', 47, 14, 'CINEMA'),
+('Mayday 2', 'bagatelaKrakow', '2018-03-11', '21:30:00', 200, 45, 'THEATRE'),
+('Szalone Nozyczki', 'bagatelaKrakow', '2018-02-17', '21:00:00', 124, 50, 'THEATRE'),
+('Czarnoksieznik z Krainy OZ', 'slowackiKrakow', '2018-02-10', '19:30:00', 84, 40, 'THEATRE'),
 ('Pinokio', 'slowackiKrakow', '2018-01-27', '18:00:00', 84, 35, 'THEATRE'),
-('KrakowLiveFestival', 'livefestivalKrakow', '2018-08-20', '17:00:00', 300, 200, 'CONCERT'),
+('Krakow Live Festival', 'livefestivalKrakow', '2018-08-20', '17:00:00', 300, 200, 'CONCERT'),
 ('Opener', 'opener', '2018-06-23','15:00:00', 500, 400, 'CONCERT');
 
 
@@ -52,14 +52,14 @@ CREATE TABLE `TICKET` (
   `eventname` varchar(70) NOT NULL,
   `how_many_tickets` MEDIUMINT NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY(`login`) REFERENCES USER (`login`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY(`login`) REFERENCES user (`login`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY(`eventname`) REFERENCES EVENT (`eventname`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 INSERT INTO `TICKET`(login,eventname, how_many_tickets) VALUES 
-('AndrzejTomczynski','MorderstwoWOrientExpressie', 2),
+('AndrzejTomczynski','Morderstwo w Orient Expressie', 2),
 ('JanLinus','Pinokio', 3),
-('JanLinus','Mayday2', 1),
+('JanLinus','Mayday 2', 1),
 ('AleksandraNowak','Opener', 10),
 ('RafalPolak','Opener', 2),
 ('TytusFigiel','Opener', 4);

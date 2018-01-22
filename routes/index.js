@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'password'
+  password : 'p37aoeny'
 });
 connection.connect();
 connection.query('USE chonotu');
@@ -13,17 +13,55 @@ connection.query('USE chonotu');
 
 /* GET home page. */
 
-//http://localhost:3000/?login=Admin
-router.get('/', function(req, res, next) {
-  // var post  = {login: req.query.login};
-  // var query = connection.query('select * from user where ?', post, function (error, results, fields) {
-  //   if (error) throw error;
-  //   res.render('index', { title: results[0].email });   
-  // });
-  // console.log(query.sql);
+// //http://localhost:3000/?login=Admin
+// router.get('/', function(req, res, next) {
+//   // var post  = {login: req.query.login};
+//   // var query = connection.query('select * from user where ?', post, function (error, results, fields) {
+//   //   if (error) throw error;
+//   //   res.render('index', { title: results[0].email });   
+//   // });
+//   // console.log(query.sql);
 
-  res.render('index');   
+//   res.render('index');   
+// });
+// router.get('/', function(req, res, next) {
+//   var events = [];
+//   connection.query('SELECT * FROM event', function(err, rows, fields) {
+//         for (var i in rows) {
+//           events.push({'event': rows[i].eventname});
+//         }
+//       console.log(events);
+//       res.render('index', events);
+//   });
+// });
+
+router.get('/', function(req, res, next) {
+  var values = [];
+  connection.query('SELECT * FROM event', function(err, rows, fields) {
+        for (var i=0; i<rows.length; i=i+4) {
+          var valuestemp = [];
+          for(var j=0; j<4; j++){
+            if(i+j>=rows.length) {
+              break;
+            }
+            var person = rows[i+j].eventname;
+            valuestemp.push(person);
+            console.log(valuestemp);
+          }
+          values.push(valuestemp)
+      }
+      console.log(values);
+      res.render('index', {"values": values});
+  });
 });
+// var events4 = [];
+// var temparray = [];
+// var i,j,chunk = 4;        
+// for (i=0,j=events.length; i<j; i+=chunk+1) {
+//   temparray = events.slice(i,i+chunk);
+//   events4.push(temparray);
+// }
+// console.log(events4);
 
 //http://localhost:3000/checkIfUsernameExists?login=Admin&password=password
 router.get('/checkIfUsernameExists', function(req, res, next) {
