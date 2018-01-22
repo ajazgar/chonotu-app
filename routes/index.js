@@ -56,7 +56,7 @@ router.get('/searchCategory', function(req, res, next) {
 
 router.get('/searchDate', function(req, res, next) {
   var values = []; 
-  var post  = {category: req.query.cat};
+  var post  = {event_date: req.query.dateEvent};
   connection.query('SELECT * FROM event where ?', post, function(err, rows, fields) {
     for (var i=0; i<rows.length; i=i+4) {
       var valuestemp = [];
