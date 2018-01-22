@@ -144,10 +144,13 @@ res.render('buyticket',  {values: cena});
 });
 });
 
-router.get('/event', function(req, res, next) {
-  var post = req.query.eventName;
+router.all('/event', function(req, res, next) {
+  var post = [req.query.eventName];
+  connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
+    var cena = row[0].ticket_price;
   console.log(post)
-  res.render('event', { post });
+  res.render('event', { post, values: cena});
+});
 });
 
 router.get('/kontakt', function(req, res, next) {
