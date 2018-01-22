@@ -31,12 +31,11 @@ html(lang="pl")
         a(href="#") Kino
     input(type="date" name="date" maxwidth="10px" style="left: 15%;")
 
-    main
+    main2
       for event in values
         .imagebutton
           for val in event
-            button.imgbtn
-              a(href="/event?eventName=" + val)=val
+            a.button.imgbtn(href="/event?eventName=" + val)=val
     footer
       p FOOTER
       p !{JSON.stringify(title)}
