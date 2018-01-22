@@ -130,21 +130,22 @@ router.get('/account', function(req, res, next) {
 });
 
 
-router.get('/buyticket', function(req, res, next) {
-//   var values = [];
-//   var post = [req.query.eventName];
-//   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, results, fields)){
-//     var cena = {
-//         'ticket_price':row[0].ticket_price;
-//     };
-//     values.push(cena);
-//   }
-// res.render('buyticket', { "values": values });
-res.render('buyticket', { title: 'Express' });  
+router.all('/buyticket', function(req, res, next) {
+  var values = [];
+  var post = [req.query.eventName];
+  connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, results, fields){
+    var cena = {
+        'ticket_price':row[0].ticket_price
+    };
+    values.push(cena);
+res.render('buyticket', { "values": values });
+});
 });
 
 router.get('/event', function(req, res, next) {
-  res.render('event', { title: 'Express' });
+  var post = req.query.eventName;
+  console.log(post)
+  res.render('event', { post });
 });
 
 router.get('/kontakt', function(req, res, next) {
