@@ -9,7 +9,7 @@ html(lang='pl')
     nav
       .inner-topnav
         a.button(href="/")
-          img(src='', alt='LOGO')
+          img(src="http://cdn3-www.dogtime.com/assets/uploads/gallery/pug-dog-breed-pictures/3-sidesitting.jpg" alt="LOGO" style="width: 120px; height: 88px;")
         .topnav-buttons
           a.button(href='/zarejestruj') Zarejestruj się
           a.button(href='/zaloguj') Zaloguj się
@@ -17,7 +17,7 @@ html(lang='pl')
           a.button(href='/kontakt') Kontakt
     main
       .middle-text
-        .content-text
+        .content-text(style="width: 100%;")
           h1 Witaj ponownie!
         form#fields(action='/checkIfUsernameExists')
           input#login.txt(type='text', name='login', required='', placeholder='Login/Mail')
@@ -26,4 +26,4 @@ html(lang='pl')
           br
           input(type='submit', value='Zaloguj')
     footer
-      p FOOTER
+      p &copy 2018 ChonotuTeam. All rights reserved
