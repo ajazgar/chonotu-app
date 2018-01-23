@@ -25,27 +25,48 @@ html(lang="pl")
             a.button(href="/kontakt?login=" + login) Kontakt
             a.button(href="/") Wyloguj
     main
-      .middle-text
-        .content-text(style="width: 100%;")
-          if valid==undefined
-            h1 Bądź na bieżąco!
-          else
-            h1 Wszystko poszło dobrze :)
-        form#main(action="/")
-          input(type="text" name='eventToSearch' required="required")
-          input.button(type="submit" value="Search")
-        br
-      .mainThings
-        .dropdown
-          button.dropbtn Co?
-          .dropdown-content
-            a(href="/searchCategory?cat=concert") Koncert
-            a(href="/searchCategory?cat=theatre") Teatr
-            a(href="/searchCategory?cat=cinema") Kino
-        form#main2(action="/searchDate")
-          input(type="date" name="dateEvent")
-          input.button(type="submit" value="Submit")
-
+      if login == undefined
+        .middle-text
+          .content-text(style="width: 100%;")
+            if valid==undefined
+              h1 Bądź na bieżąco!
+            else
+              h1 Wszystko poszło dobrze :)
+          form#main(action="/")
+            input(type="text" name='eventToSearch' required="required")
+            input.button(type="submit" value="Search")
+          br
+        .mainThings
+          .dropdown
+            button.dropbtn Co?
+            .dropdown-content
+              a(href="/searchCategory?cat=concert") Koncert
+              a(href="/searchCategory?cat=theatre") Teatr
+              a(href="/searchCategory?cat=cinema") Kino
+          form#main2(action="/searchDate")
+            input(type="date" name="dateEvent")
+            input.button(type="submit" value="Submit")
+      else
+        .middle-text
+          .content-text(style="width: 100%;")
+            if valid==undefined
+              h1 Bądź na bieżąco!
+            else
+              h1 Wszystko poszło dobrze :)
+          form#main(action="/?login="+login)
+            input(type="text" name='eventToSearch' required="required")
+            input.button(type="submit" value="Search")
+          br
+        .mainThings
+          .dropdown
+            button.dropbtn Co?
+            .dropdown-content
+              a(href="/searchCategory?cat=concert&login="+login) Koncert
+              a(href="/searchCategory?cat=theatre&login="+login) Teatr
+              a(href="/searchCategory?cat=cinema&login="+login) Kino
+          form#main2(action="/searchDate&login="+login)
+            input(type="date" name="dateEvent")
+            input.button(type="submit" value="Submit")
     main2
       for event in values
         .imagebutton

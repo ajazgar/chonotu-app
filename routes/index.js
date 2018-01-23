@@ -159,7 +159,7 @@ router.get('/addTicket', function(req, res, next) {
   var post = [req.query.login, req.query.eventName, 1];
   var query = connection.query('insert into ticket(login, eventname, how_many_tickets) values(?,?,?)', post, function (error, results, fields) {
     if (error) throw error;
-    res.redirect('/?valid=1');
+    res.redirect('/?valid=1'+'&login=' + req.query.login);
   });
 });
 
