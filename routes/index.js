@@ -94,13 +94,20 @@ router.get('/', function(req, res, next) {
   else{
     var values = [];
     
-    var post  = {eventname: req.query.eventToSearch};
-    connection.query('SELECT * FROM event where ?', post, function(err, rows, fields) {
-              var valuestemp = [];
-              var person = rows[0].eventname
-              valuestemp.push(person);
-              values.push(valuestemp);
-        res.render('index', {"values": values, "login": req.query.login, "valid": req.query.valid});
+    var post  = [req.query.eventToSearch];
+    connection.query('SELECT * FROM event where eventname LIKE ?', '%' + post + '%', function(err, rows, fields) {
+      for (var i=0; i<rows.length; i=i+4) {
+        var valuestemp = [];
+        for(var j=0; j<4; j++){
+          if(i+j>=rows.length) {
+            break;
+          }
+          var person = rows[i+j].eventname;
+          valuestemp.push(person);
+        }
+        values.push(valuestemp)
+    }
+    res.render('index', {"values": values, "login": req.query.login, "valid": req.query.valid});
     });
   }
 });
