@@ -314,6 +314,8 @@ textarea{
 
 .upper-text > img {
     float: left;
+    width: 400px;
+    height: 200px;
 }   
 
 .lower-text {
@@ -321,6 +323,11 @@ textarea{
     overflow: hidden;
     margin-top: 30px;
 }
+
+.lower-text > img {
+    width: 400px;
+    height: 200px;
+} 
 
 .event-text {
     display: inline-block;
@@ -400,7 +407,7 @@ textarea{
     display: inline;
 }
 a.button.imgbtn {
-    background-color: buttonface;
+    background-color: #333;
     color: white;
     padding: 16px;
     font-size: 16px;
