@@ -31,7 +31,7 @@ router.get('/mytickets', function(req, res, next) {
           };
           values.push(ticket);
       }
-      res.render('mytickets', {"values": values});
+      res.render('mytickets', {"values": values, "login": req.query.login});
   });
 });
 
@@ -50,7 +50,7 @@ router.get('/searchCategory', function(req, res, next) {
       }
       values.push(valuestemp)
   }
-      res.render('index', {"values": values});
+      res.render('index', {"values": values, "login": req.query.login});
   });
 });
 
@@ -69,7 +69,7 @@ router.get('/searchDate', function(req, res, next) {
       }
       values.push(valuestemp)
   }
-      res.render('index', {"values": values});
+      res.render('index', {"values": values, "login": req.query.login});
   });
 });
 
@@ -88,7 +88,7 @@ router.get('/', function(req, res, next) {
           }
           values.push(valuestemp)
       }
-      res.render('index', {"values": values});
+      res.render('index', {"values": values, "login": req.query.login});
   });
 }
   else{
@@ -100,7 +100,7 @@ router.get('/', function(req, res, next) {
               var person = rows[0].eventname
               valuestemp.push(person);
               values.push(valuestemp);
-        res.render('index', {"values": values});
+        res.render('index', {"values": values, "login": req.query.login});
     });
   }
 });
@@ -177,7 +177,7 @@ if(req.query.userToSearch != undefined){
               'login':rows[0].login
             };
             values.push(person);
-      res.render('listofusers', {"values": values});
+      res.render('listofusers', {"values": values, "login": req.query.login});
   });
 }
 else{
@@ -192,7 +192,7 @@ else{
           values.push(person);
       }
 
-      res.render('listofusers', {"values": values});
+      res.render('listofusers', {"values": values, "login": req.query.login});
   });
 }
   
@@ -201,7 +201,7 @@ else{
 
 
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'Express' });
+  res.render('about', { title: 'Express' , "login": req.query.login});
 });
 
 router.all('/buyticket', function(req, res, next) {
@@ -209,7 +209,7 @@ router.all('/buyticket', function(req, res, next) {
   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
     var cena = row[0].ticket_price;
   console.log(post)
-res.render('buyticket',  {post, values: cena});
+res.render('buyticket',  {post, values: cena, "login": req.query.login});
 });
 });
 
@@ -218,12 +218,12 @@ router.all('/event', function(req, res, next) {
   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
     var cena = row[0].ticket_price;
   console.log(post)
-  res.render('event', { post, values: cena});
+  res.render('event', { "post": post, "values": cena, "login": req.query.login});
 });
 });
 
 router.get('/kontakt', function(req, res, next) {
-  res.render('kontakt', { title: 'Express' });
+  res.render('kontakt', { title: 'Express', "login": req.query.login });
 });
 
 

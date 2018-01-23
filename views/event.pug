@@ -7,14 +7,23 @@ html(lang="pl")
     title Strona główna
   body
     nav
-      .inner-topnav
-        a.button(href="/")
-          img(src="" alt="LOGO")
-        .topnav-buttons
-          a.button(href="/zarejestruj") Zarejestruj się
-          a.button(href="/zaloguj") Zaloguj się
-          a.button(href="/about") O aplikacji
-          a.button(href="/kontakt") Kontakt
+      if login == undefined
+        .inner-topnav
+          a.button(href="/")
+            img(src="" alt="LOGO")
+          .topnav-buttons
+            a.button(href="/zarejestruj") Zarejestruj się
+            a.button(href="/zaloguj") Zaloguj się
+            a.button(href="/about") O aplikacji
+            a.button(href="/kontakt") Kontakt
+      else
+        .inner-topnav
+          a.button(href="/?login=" + login)
+            img(src="" alt="LOGO")
+          .topnav-buttons
+            a.button(href="/about?login=" + login) O aplikacji
+            a.button(href="/kontakt?login=" + login) Kontakt
+            a.button(href="/") Wyloguj
     main
       .row
         .column1
@@ -24,7 +33,10 @@ html(lang="pl")
             br
             br
             h1 #{values} zł
-            a.button.buybtn(href="/buyticket?eventName="+post) Kup Bilet            
+            if login == undefined
+              a.button.buybtn(href="/buyticket?eventName="+post) Kup Bilet  
+            else
+              a.button.buybtn(href="/buyticket?eventName="+post + '&login=' + login) Kup Bilet           
       .row
         h2
           br

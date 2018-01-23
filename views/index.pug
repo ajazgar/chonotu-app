@@ -38,7 +38,10 @@ html(lang="pl")
       for event in values
         .imagebutton
           for val in event
-            a.button.imgbtn(href="/event?eventName=" + val)=val
+            if login==undefined
+              a.button.imgbtn(href="/event?eventName=" + val)=val
+            else
+              a.button.imgbtn(href="/event?login=" + login + "&eventName=" + val)=val
     footer
       p FOOTER
       p !{JSON.stringify(title)}
