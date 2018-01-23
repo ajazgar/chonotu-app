@@ -7,14 +7,23 @@ html(lang="pl")
     title Strona główna
   body
     nav
-      .inner-topnav
-        a.button(href="/")
-          img(src="http://cdn3-www.dogtime.com/assets/uploads/gallery/pug-dog-breed-pictures/3-sidesitting.jpg" alt="LOGO" style="width: 120px; height: 88px;")
-        .topnav-buttons
-          a.button(href="/zarejestruj") Zarejestruj się
-          a.button(href="/zaloguj") Zaloguj się
-          a.button(href="/about") O aplikacji
-          a.button(href="/kontakt") Kontakt
+      if login == undefined
+        .inner-topnav
+          a.button(href="/")
+            img(src="http://cdn3-www.dogtime.com/assets/uploads/gallery/pug-dog-breed-pictures/3-sidesitting.jpg" alt="LOGO" style="width: 120px; height: 88px;")
+          .topnav-buttons
+            a.button(href="/zarejestruj") Zarejestruj się
+            a.button(href="/zaloguj") Zaloguj się
+            a.button(href="/about") O aplikacji
+            a.button(href="/kontakt") Kontakt
+      else
+        .inner-topnav
+          a.button(href="/?login=" + login)
+            img(src="http://cdn3-www.dogtime.com/assets/uploads/gallery/pug-dog-breed-pictures/3-sidesitting.jpg" alt="LOGO" style="width: 120px; height: 88px;")
+          .topnav-buttons
+            a.button(href="/about?login=" + login) O aplikacji
+            a.button(href="/kontakt?login=" + login) Kontakt
+            a.button(href="/") Wyloguj
     main
       .row
         .column1
