@@ -19,11 +19,11 @@ html(lang='pl')
       }
     nav
       .inner-topnav
-        a.button(href='/')
+        a.button(href='/?login='+login)
           img(src='', alt='LOGO')
         .topnav-buttons
-          a.button(href='/about') O aplikacji
-          a.button(href='/kontakt') Kontakt
+          a.button(href='/about?login='+login) O aplikacji
+          a.button(href='/kontakt?login='+login) Kontakt
     main
       .user-info
         h3 Cześć, !{JSON.stringify(login)}
