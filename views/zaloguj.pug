@@ -18,7 +18,10 @@ html(lang='pl')
     main
       .middle-text
         .content-text(style="width: 100%;")
-          h1 Witaj ponownie!
+          if message==undefined
+            h1 Witaj ponownie!
+          else
+            h1 Wszystko poszło dobrze :)
         form#fields(action='/checkIfUsernameExists')
           input#login.txt(type='text', name='login', required='', placeholder='Login/Mail')
           br

@@ -61,7 +61,8 @@ html(lang='pl')
             br
             h3#usersheader #{post}
             br
-            button#buyticketbutton Kup bilet
+            button#buyticketbutton
+              a.button(href="/addTicket?login=" + login + "&eventName=" + post) Kup Bilet
             button#cancelbutton
               a.button.cancelbutton(href="/event?eventName="+post) Anuluj
       #buy

@@ -50,7 +50,7 @@ router.get('/searchCategory', function(req, res, next) {
       }
       values.push(valuestemp)
   }
-      res.render('index', {"values": values, "login": req.query.login});
+      res.render('index', {"values": values, "login": req.query.login, "valid": req.query.valid});
   });
 });
 
@@ -69,7 +69,7 @@ router.get('/searchDate', function(req, res, next) {
       }
       values.push(valuestemp)
   }
-      res.render('index', {"values": values, "login": req.query.login});
+      res.render('index', {"values": values, "login": req.query.login, "valid": req.query.valid});
   });
 });
 
@@ -88,7 +88,7 @@ router.get('/', function(req, res, next) {
           }
           values.push(valuestemp)
       }
-      res.render('index', {"values": values, "login": req.query.login});
+      res.render('index', {"values": values, "login": req.query.login, "valid": req.query.valid});
   });
 }
   else{
@@ -100,7 +100,7 @@ router.get('/', function(req, res, next) {
               var person = rows[0].eventname
               valuestemp.push(person);
               values.push(valuestemp);
-        res.render('index', {"values": values, "login": req.query.login});
+        res.render('index', {"values": values, "login": req.query.login, "valid": req.query.valid});
     });
   }
 });
@@ -131,7 +131,7 @@ router.get('/checkIfUsernameExists', function(req, res, next) {
 
 //http://localhost:3000/zaloguj
 router.get('/zaloguj', function(req, res, next) {
-    res.render('zaloguj'); 
+    res.render('zaloguj', {"valid": req.query.valid}); 
 });
 
 //http://localhost:3000/zarejestruj
@@ -143,7 +143,7 @@ router.get('/addUser', function(req, res, next) {
   var post = [req.query.login, req.query.password, req.query.email, req.query.date_of_birth ];
   var query = connection.query('insert into user values(?,?,?,?)', post, function (error, results, fields) {
     if (error) throw error;
-    res.redirect('/zaloguj');
+    res.redirect('/zaloguj?valid=1');
   });
 });
 
@@ -154,6 +154,14 @@ router.get('/addUser', function(req, res, next) {
 //     res.redirect('/mytickets?login='+req.query.login);
 //   });
 // });
+
+router.get('/addTicket', function(req, res, next) {
+  var post = [req.query.login, req.query.eventName, 1];
+  var query = connection.query('insert into ticket(login, eventname, how_many_tickets) values(?,?,?)', post, function (error, results, fields) {
+    if (error) throw error;
+    res.redirect('/?valid=1');
+  });
+});
 
 //http://localhost:3000/delete?login=Admin&userToDelete=AndrzejTomczynski
 router.all('/delete', function(req, res, next) {

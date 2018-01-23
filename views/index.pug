@@ -27,7 +27,10 @@ html(lang="pl")
     main
       .middle-text
         .content-text(style="width: 100%;")
-          h1 Bądź na bieżąco!
+          if valid==undefined
+            h1 Bądź na bieżąco!
+          else
+            h1 Wszystko poszło dobrze :)
         form#main(action="/")
           input(type="text" name='eventToSearch' required="required")
           input.button(type="submit" value="Search")
