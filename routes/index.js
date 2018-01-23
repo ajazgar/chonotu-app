@@ -205,12 +205,17 @@ router.get('/about', function(req, res, next) {
 });
 
 router.all('/buyticket', function(req, res, next) {
+  if(req.query.login==undefined){
+    res.render('loginfirst');
+  }
+  else{
   var post = [req.query.eventName];
   connection.query('SELECT ticket_price FROM event where eventname=?', post, function (error, row, fields){
     var cena = row[0].ticket_price;
   console.log(post)
 res.render('buyticket',  {post, values: cena, "login": req.query.login});
 });
+}
 });
 
 router.all('/event', function(req, res, next) {
